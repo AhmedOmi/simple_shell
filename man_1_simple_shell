@@ -1,0 +1,10 @@
+.TH SIMPLE SHELL 1
+.SH NAME
+simple shell \- execute shell commands like the unix shell
+.SH SYNOPSIS
+.B hsh
+.IR file ...
+.SH DESCRIPTION
+.B hsh
+executing shell commands in a super simple way
+.SH OPTIONS
