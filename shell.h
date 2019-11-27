@@ -17,6 +17,7 @@
 
 extern char **environ;
 
+ssize_t _getline(char **buf, size_t *size, FILE *stream);
 void sigintHandler();
 char *r_line(char *buffer);
 char **split(char *buffer);

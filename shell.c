@@ -1,4 +1,6 @@
 #include "shell.h"
+
+
 /**
  * sigintHandler - function to cancel ctrl+c
  *
@@ -22,7 +24,7 @@ char *r_line(char *buffer)
 {
 buffer = NULL;
 size_t size_buffer;
-ssize_t count = getline(&buffer, &size_buffer, stdin);
+ssize_t count = _getline(&buffer, &size_buffer, stdin);
 /*exit*/
 if (_strcmp(buffer, "exit\n") == 0)
 {
