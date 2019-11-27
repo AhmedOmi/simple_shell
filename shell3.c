@@ -11,7 +11,8 @@ ssize_t _getline(char **buf, size_t *size, FILE *stream)
 {
 size_t count = 0;
 char c;
-while ((c = (char)getc(stream)) != '\n' && count < size[count] - 1) {
+while ((c = (char)getc(stream)) != '\n' && count < size[count] - 1)
+{
 *buf[count++] = c;
 }
 *buf[count] = '\0';
