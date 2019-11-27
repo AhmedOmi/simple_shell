@@ -72,3 +72,24 @@ token = strtok(NULL, " \n");
 array[i] = NULL;
 return (array);
 }
+/**
+ * env - function environement
+ * @array: pointer char
+ * Return: void
+ */
+void env(char **array)
+{
+  if(strcmp(array[0], "env") == 0)
+  {
+  int i = 0;
+  int tmp;
+
+  while (environ[i] != NULL)
+  {
+       for (tmp = 0; environ[i][tmp] != '\0'; tmp++)
+      write(STDOUT_FILENO, &environ[i][tmp], 1);
+      write(STDOUT_FILENO, "\n", 1);
+      i++;
+    }
+  }
+}

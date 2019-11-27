@@ -15,9 +15,12 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
+extern char **environ;
+
 void sigintHandler();
 char *r_line(char *buffer);
 char **split(char *buffer);
+void env(char **array);
 char *_strcat(char *dest, char *src);
 void strtoav(char *str, char *array[]);
 int path_function(char **array);

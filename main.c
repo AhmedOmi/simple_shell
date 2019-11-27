@@ -16,6 +16,7 @@ while (1)
 printf("#cisfun$ ");
 buffer = r_line(buffer);
 array = split(buffer);
+env(array);
 if (path_function(array) == 0)
 {
 perror("Error:");
