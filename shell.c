@@ -24,7 +24,7 @@ buffer = NULL;
 size_t size_buffer;
 ssize_t count = getline(&buffer, &size_buffer, stdin);
 /*exit*/
-if (strcmp(buffer, "exit\n") == 0)
+if (_strcmp(buffer, "exit\n") == 0)
 {
 free(buffer);
 exit(1);
@@ -79,17 +79,16 @@ return (array);
  */
 void env(char **array)
 {
-  if(strcmp(array[0], "env") == 0)
-  {
-  int i = 0;
-  int tmp;
-
-  while (environ[i] != NULL)
-  {
-       for (tmp = 0; environ[i][tmp] != '\0'; tmp++)
-      write(STDOUT_FILENO, &environ[i][tmp], 1);
-      write(STDOUT_FILENO, "\n", 1);
-      i++;
-    }
-  }
+if (_strcmp(array[0], "env\n") == 0)
+{
+int i = 0;
+int tmp;
+while (environ[i] != NULL)
+{
+for (tmp = 0; environ[i][tmp] != '\0'; tmp++)
+write(STDOUT_FILENO, &environ[i][tmp], 1);
+write(STDOUT_FILENO, "\n", 1);
+i++;
+}
+}
 }
