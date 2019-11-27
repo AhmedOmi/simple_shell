@@ -1,51 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/wait.h>
-#include <unistd.h>
-#include <signal.h>
-#include <errno.h>
-#include <stdbool.h>
-
-void sigintHandler();
-char *r_line(char *buffer);
-/**
- * main - function main
- *
- * Return: integer = 0
- */
-
-int main(void)
-{
-char *buffer = NULL;
-char *token;
-char **array = malloc(sizeof(char *) * 2);
-
-/*signal to cancel ctrl + c*/
-signal(SIGINT, sigintHandler);
-while (1)
-{
-printf("#cisfun$ ");
-buffer = r_line(buffer);
-token = strtok(buffer, " \n");
-array[0] = token;
-array[1] = NULL;
-if (execve(token, array, NULL) == -1)
-{
-perror("Error:");
-}
-}
-return (0);
-}
-
+#include "shell.h"
 /**
  * sigintHandler - function to cancel ctrl+c
  *
  * Return: void
  */
+
 void sigintHandler()
 {
-
 signal(SIGINT, sigintHandler);
 printf("\n press CTRL + d to exit \n");
 fflush(stdout);
@@ -62,10 +23,52 @@ char *r_line(char *buffer)
 buffer = NULL;
 size_t size_buffer;
 ssize_t count = getline(&buffer, &size_buffer, stdin);
+/*exit*/
+if (strcmp(buffer, "exit\n") == 0)
+{
+free(buffer);
+exit(1);
+}
+/*ctrl + d*/
 if (count == EOF)
 {
 write(STDOUT_FILENO, "\n", 1);
 exit(0);
 }
 return (buffer);
+}
+
+/**
+ * split - function test of line
+ * @buffer: pointer char
+ * Return: char
+ */
+
+char **split(char *buffer)
+{
+int i = 0;
+int size_buffer = 64;
+char **array = malloc(sizeof(char *) * size_buffer);
+char *token;
+if (!array)
+{
+exit(EXIT_FAILURE);
+}
+
+token = strtok(buffer, " \n");
+while (token != NULL)
+{
+array[i] = token;
+i++;
+if (i >= size_buffer)
+{
+size_buffer += 64;
+array = realloc(array, sizeof(char *) * size_buffer);
+if (!array)
+exit(EXIT_FAILURE);
+}
+token = strtok(NULL, " \n");
+}
+array[i] = NULL;
+return (array);
 }

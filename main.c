@@ -4,6 +4,7 @@
  *
  * Return: integer = 0
  */
+
 int main(void)
 {
 char *buffer = NULL;
