@@ -8,7 +8,7 @@
 void sigintHandler()
 {
 signal(SIGINT, sigintHandler);
-printf("\n press CTRL + d to exit \n");
+printf("\n^C\n");
 fflush(stdout);
 }
 
