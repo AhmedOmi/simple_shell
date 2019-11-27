@@ -17,6 +17,7 @@
 
 extern char **environ;
 
+char * mystrtok(char * str, char *comp);
 ssize_t _getline(char **buf, size_t *size, FILE *stream);
 void sigintHandler();
 char *r_line(char *buffer);

@@ -10,7 +10,7 @@
 void sigintHandler()
 {
 signal(SIGINT, sigintHandler);
-printf("\n^C\n");
+printf("\n");
 fflush(stdout);
 }
 
@@ -35,6 +35,7 @@ exit(1);
 if (count == EOF)
 {
 write(STDOUT_FILENO, "\n", 1);
+
 exit(0);
 }
 return (buffer);
@@ -57,7 +58,7 @@ if (!array)
 exit(EXIT_FAILURE);
 }
 
-token = strtok(buffer, " \n");
+token = mystrtok(buffer, " \n");
 while (token != NULL)
 {
 array[i] = token;
@@ -69,7 +70,7 @@ array = realloc(array, sizeof(char *) * size_buffer);
 if (!array)
 exit(EXIT_FAILURE);
 }
-token = strtok(NULL, " \n");
+token = mystrtok(NULL, " \n");
 }
 array[i] = NULL;
 return (array);
@@ -81,7 +82,7 @@ return (array);
  */
 void env(char **array)
 {
-if (_strcmp(array[0], "env\n") == 0)
+if (_strcmp(array[0], "env") == 0)
 {
 int i = 0;
 int tmp;

@@ -54,10 +54,10 @@ void strtoav(char *str, char *array[])
 {
 int i = 0;
 
-array[i] = strtok(str, ":");
+array[i] = mystrtok(str, ":");
 
 while (array[i] != NULL)
-array[++i] = strtok(NULL, ":");
+array[++i] = mystrtok(NULL, ":");
 }
 
 /**
