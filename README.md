@@ -3,6 +3,8 @@
 ## Simple Shell
 
 We are recreating our own version of shell
+## Compilation Proccess
+``gcc -Wall -Werror -Wextra -pedantic *.c -o hsh``
 
 ## Usage
 ``
