@@ -1,4 +1,5 @@
 #include "shell.h"
+#include<stdio.h>
 /**
  * _getline - function to get line
  * @buf: pointer char
@@ -11,11 +12,10 @@ ssize_t _getline(char **buf, size_t *size, FILE *stream)
 {
 size_t count = 0;
 char c;
-while ((c = (char)getc(stream)) != '\n' && count < size[count] - 1)
+while ((c = (char)getc(stream)) != '\n' && count < size[count] - 1 && c != EOF)
 {
 *buf[count++] = c;
 }
-count = count + 1;
 *buf[count] = '\0';
 return (count);
 }
