@@ -15,6 +15,7 @@ while ((c = (char)getc(stream)) != '\n' && count < size[count] - 1)
 {
 *buf[count++] = c;
 }
+count = count + 1;
 *buf[count] = '\0';
 return (count);
 }
