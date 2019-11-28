@@ -1,4 +1,4 @@
-.TH SIMPLE SHELL 1
+.TH man 1 "28 November 2019" "simple_shell man page"
 .SH NAME
 simple shell \- execute shell commands like the unix shell
 .SH SYNOPSIS
@@ -7,4 +7,5 @@ simple shell \- execute shell commands like the unix shell
 .SH DESCRIPTION
 .B hsh
 executing shell commands in a super simple way
-.SH OPTIONS
+.SH AUTHORS
+Yassin Bahri, Ahmed Omar Miladi
