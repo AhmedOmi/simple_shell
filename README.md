@@ -5,6 +5,8 @@
 We are recreating our own version of shell
 
 ## Usage
-
+``
+./hsh
+``
 ## Contributors
 Yassin Bahri (1043@holbertonschool.com) and Ahmed Omar Miladi (1125@holbertonschool.com)
