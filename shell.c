@@ -7,7 +7,7 @@
  * Return: void
  */
 
-void sigintHandler()
+void sigintHandler(void)
 {
 signal(SIGINT, sigintHandler);
 printf("\n");

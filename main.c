@@ -21,13 +21,6 @@ if (path_function(array) == 0)
 {
 perror("Error:");
 }
-if (buffer == NULL)
-{
-printf("#cisfun$ ");
-buffer = r_line(buffer);
-array = split(buffer);
-env(array);
-}
 }
 return (0);
 }

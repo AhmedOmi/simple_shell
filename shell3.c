@@ -22,7 +22,7 @@ return (count);
 
 /**
  * mystrtok - function str stock
- * @tr: pointer char
+ * @str: pointer char
  * @comp: variable char
  * Return: char
  */

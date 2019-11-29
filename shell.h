@@ -19,7 +19,7 @@ extern char **environ;
 
 char *mystrtok(char *str, char *comp);
 ssize_t _getline(char **buf, size_t *size, FILE *stream);
-void sigintHandler();
+void sigintHandler(void);
 char *r_line(char *buffer);
 char **split(char *buffer);
 void env(char **array);
